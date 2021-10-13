@@ -31,7 +31,7 @@ const services = {
                    to:req.body.email,
                    subject : "reset your password",
                    html : `
-                   <p>click the <a href="http://localhost:3000/reset/${emailToken}">link</a> to reset your password</p>
+                   <p>click the <a href="https://suraj-urlshortner.netlify.app/reset/${emailToken}">link</a> to reset your password</p>
                    <p>valid for 24 hrs only</p>
                    `
     
@@ -81,7 +81,7 @@ const services = {
         const searchUrl = await db.url.findOne({url:req.body.url})
         if(searchUrl){
             //if yes than send the saved url
-            res.send(`https://suraj-urlshortner.netlify.app//${searchUrl.shortUrl}`)
+            res.send(`https://suraj-urlshortner.netlify.app/${searchUrl.shortUrl}`)
         }else{
             //else generate a new url and send to the database
             const shortUrl = shortid.generate()
