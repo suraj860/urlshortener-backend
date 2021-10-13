@@ -81,12 +81,12 @@ const services = {
         const searchUrl = await db.url.findOne({url:req.body.url})
         if(searchUrl){
             //if yes than send the saved url
-            res.send(`http://localhost:3000/redirection/${searchUrl.shortUrl}`)
+            res.send(`https://suraj-urlshortner.netlify.app//${searchUrl.shortUrl}`)
         }else{
             //else generate a new url and send to the database
             const shortUrl = shortid.generate()
             const data = await db.url.insertOne({url:req.body.url , shortUrl : shortUrl})  
-            res.send(`http://localhost:3000/redirection/${shortUrl}`)
+            res.send(`https://suraj-urlshortner.netlify.app/redirection/${shortUrl}`)
         }   
     },
 
